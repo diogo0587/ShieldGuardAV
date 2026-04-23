@@ -87,7 +87,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun cancelScan() {
-        viewModelScope.update { it.copy(isScanning = false) }
+        _uiState.update { it.copy(isScanning = false) }
     }
 
     fun refreshScore() {

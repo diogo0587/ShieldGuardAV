@@ -31,7 +31,7 @@ class SecurityRepositoryImpl @Inject constructor(
         var privacyScore = 100
         var networkScore = 100
 
-        val autoProtect = getSharedPreferences("shield_guard_prefs", Context.MODE_PRIVATE)
+        val autoProtect = context.getSharedPreferences("shield_guard_prefs", Context.MODE_PRIVATE)
             .getBoolean("auto_protection", true)
         if (!autoProtect) antivirusScore -= 30
 

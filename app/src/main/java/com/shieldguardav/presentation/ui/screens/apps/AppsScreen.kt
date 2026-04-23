@@ -9,12 +9,15 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.shieldguardav.domain.model.AppInfo
 import com.shieldguardav.domain.model.RiskLevel
 import com.shieldguardav.presentation.viewmodel.AppsViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppsScreen(viewModel: AppsViewModel = hiltViewModel()) {
     val uiState by viewModel.uiState.collectAsState()
@@ -68,10 +71,14 @@ fun AppsScreen(viewModel: AppsViewModel = hiltViewModel()) {
     }
 
     if (uiState.selectedApp != null) {
-        AppDetailsDialog(app = uiState.selectedApp, onDismiss = { viewModel.clearSelectedApp() }, onUninstall = {
-            viewModel.uninstallApp(it)
-            viewModel.clearSelectedApp()
-        })
+        AppDetailsDialog(
+            app = uiState.selectedApp!!,
+            onDismiss = { viewModel.clearSelectedApp() },
+            onUninstall = {
+                viewModel.uninstallApp(it)
+                viewModel.clearSelectedApp()
+            }
+        )
     }
 }
 
