@@ -34,6 +34,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
           
+    - name: Clear Gradle cache
+      run: rm -rf ~/.gradle/caches/transforms-*
+          
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
       
