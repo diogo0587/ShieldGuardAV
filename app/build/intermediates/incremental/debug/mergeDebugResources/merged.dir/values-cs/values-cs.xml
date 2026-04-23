@@ -4,6 +4,13 @@
     <string msgid="1918297411568599192" name="bottom_sheet_dismiss_description">"Zavřít spodní tabulku"</string>
     <string msgid="7772321844937772780" name="bottom_sheet_drag_handle_description">"Úchyt pro přetažení"</string>
     <string msgid="4324434199045499117" name="bottom_sheet_expand_description">"Rozbalit spodní tabulku"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"Přijmout"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"Odmítnout"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"Zavěsit"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"Příchozí hovor"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Probíhající hovor"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"Prověřování příchozího hovoru"</string>
     <string msgid="406453423630273620" name="close_drawer">"Zavřít navigační panel"</string>
     <string msgid="7573152094250666567" name="close_sheet">"Zavřít sešit"</string>
     <string msgid="5389587048670450460" name="collapsed">"Sbaleno"</string>
@@ -54,6 +61,7 @@
     <string msgid="6420018528474762666" name="search_bar_search">"Hledat"</string>
     <string msgid="6043586758067023" name="selected">"Vybráno"</string>
     <string msgid="3962933905051144957" name="snackbar_dismiss">"Zavřít"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
     <string msgid="7189888345201419934" name="suggestions_available">"Návrh je níže"</string>
     <string msgid="2561197295334830845" name="switch_role">"Přepnout"</string>
     <string msgid="1672349317127674378" name="tab">"Karta"</string>

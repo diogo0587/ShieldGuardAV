@@ -4,6 +4,13 @@
     <string msgid="1918297411568599192" name="bottom_sheet_dismiss_description">"கீழ்ப்புறச் சீட்டை நிராகரிக்கும்"</string>
     <string msgid="7772321844937772780" name="bottom_sheet_drag_handle_description">"இழுப்பதற்கான ஹேண்டில்"</string>
     <string msgid="4324434199045499117" name="bottom_sheet_expand_description">"கீழ்ப்புறச் சீட்டை விரிவாக்கும்"</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"பதிலளி"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"வீடியோ"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"நிராகரி"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"துண்டி"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"உள்வரும் அழைப்பு"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"செயலில் இருக்கும் அழைப்பு"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"உள்வரும் அழைப்பை மதிப்பாய்வு செய்கிறது"</string>
     <string msgid="406453423630273620" name="close_drawer">"வழிசெலுத்தல் மெனுவை மூடும்"</string>
     <string msgid="7573152094250666567" name="close_sheet">"ஷீட்டை மூடும்"</string>
     <string msgid="5389587048670450460" name="collapsed">"சுருக்கப்பட்டது"</string>
@@ -54,6 +61,7 @@
     <string msgid="6420018528474762666" name="search_bar_search">"தேடலாம்"</string>
     <string msgid="6043586758067023" name="selected">"தேர்ந்தெடுக்கப்பட்டுள்ளது"</string>
     <string msgid="3962933905051144957" name="snackbar_dismiss">"மூடும்"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
     <string msgid="7189888345201419934" name="suggestions_available">"பரிந்துரைகள் கீழே கிடைக்கும்"</string>
     <string msgid="2561197295334830845" name="switch_role">"மாற்றுதல்"</string>
     <string msgid="1672349317127674378" name="tab">"பிரிவு"</string>
