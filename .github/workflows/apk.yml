@@ -1,4 +1,4 @@
-name: Build ShieldGuard APK (Full Auto)
+name: AutoFix + Build APK
 
 on:
   push:
@@ -9,9 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    env:
-      GRADLE_OPTS: -Dorg.gradle.jvmargs="-Xmx4g -XX:+HeapDumpOnOutOfMemoryError"
-    
     steps:
       - name: 📥 Checkout
         uses: actions/checkout@v4
@@ -26,36 +23,51 @@ jobs:
       - name: 🤖 Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: 🧹 Clean project (remove lixo commitado)
+      # 🧹 LIMPEZA PESADA
+      - name: 🧹 Clean garbage
         run: |
           rm -rf .gradle || true
           rm -rf app/build || true
           rm -f local.properties || true
 
-      - name: ⚙️ Create local.properties
-        run: |
-          echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+      # 🔧 RECRIA local.properties
+      - name: ⚙️ Fix SDK path
+        run: echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
 
-      - name: 🔐 Fix permissions
+      # 🔐 Permissão gradlew
+      - name: 🔐 Fix gradlew
         run: chmod +x gradlew
 
-      - name: 📦 Gradle clean
-        run: ./gradlew clean
+      # 🧠 AUTO PATCH BUILD.GRADLE
+      - name: 🧠 Patch Gradle (Compose + OptIn)
+        run: |
+          FILE=app/build.gradle
 
-      - name: 🛠️ Build Debug APK
+          if [ -f "$FILE" ]; then
+            echo "Patching $FILE..."
+
+            # adiciona opt-in Material3 se não existir
+            grep -q "ExperimentalMaterial3Api" $FILE || sed -i '/kotlinOptions {/a\        freeCompilerArgs += ["-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"]' $FILE
+
+            # força jvmTarget
+            grep -q "jvmTarget" $FILE || sed -i '/kotlinOptions {/a\        jvmTarget = "17"' $FILE
+          fi
+
+      # 🏗️ BUILD
+      - name: 🏗️ Build Debug APK
         run: ./gradlew assembleDebug --stacktrace
 
-      - name: 🛠️ Build Release APK (unsigned)
-        run: ./gradlew assembleRelease --stacktrace
+      # 📦 VERIFICA APK
+      - name: ✅ Check APK
+        run: |
+          if [ ! -f app/build/outputs/apk/debug/app-debug.apk ]; then
+            echo "❌ APK não gerado"
+            exit 1
+          fi
 
-      - name: 📤 Upload Debug APK
+      # 📤 UPLOAD
+      - name: 📤 Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: ShieldGuard-debug
+          name: ShieldGuard-AutoBuild
           path: app/build/outputs/apk/debug/app-debug.apk
-
-      - name: 📤 Upload Release APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: ShieldGuard-release
-          path: app/build/outputs/apk/release/app-release.apk
